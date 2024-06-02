@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_tematica_gestor,editorial.tematica,model_editorial_tematica,gestor_editorial,1,1,1,1
+access_revista_responsable,editorial.revista,model_editorial_revista,gestor_editorial,1,1,1,1

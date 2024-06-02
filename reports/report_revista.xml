@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+        <report id="editorial.report_revista"
+                model="editorial.revista"
+                string="Informe de la revista"
+                name="editorial.report_revista_view"
+                file="editorial.report_revista_view"
+                report_type="qweb-pdf"/>
+        <template id="report_revista_view">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="revista">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h2 t-field="revista.name"/>
+                            <div>
+                                <strong>Código de revista:</strong>
+                                <span t-field="revista.codigo"/>
+                            </div>
+                            <div>
+                                <strong>Número de páginas:</strong>
+                                <span t-field="revista.numeropaginas"/>
+                            </div>
+                            <div>
+                                <strong>Precio:</strong>
+                                <span t-field="revista.precio"/>
+                            </div>
+                            <div>
+                                <strong>Rango de precio:</strong>
+                                <span t-field="revista.rangoprecio"/>
+                            </div>
+                            <div>
+                                <strong>Temática de la revista:</strong>
+                                <span t-field="revista.tematica"/>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

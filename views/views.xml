@@ -1,0 +1,88 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="editorial.tematica_tree">
+      <field name="name">editorial.tematica.tree</field>
+      <field name="model">editorial.tematica</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="descripcion"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="editorial.tematica_form">
+      <field name="name">editorial.tematica.form</field>
+      <field name="model">editorial.tematica</field>
+      <field name="arch" type="xml">
+        <form>
+          <group colspan="2" col="2">
+            <field name="name"/>
+            <field name="descripcion"/>
+          </group>
+        </form>
+      </field>
+    </record>
+    
+    <record model="ir.ui.view" id="editorial.revista_tree">
+      <field name="name">editorial.revista.tree</field>
+      <field name="model">editorial.revista</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="codigo"/>
+          <field name="numeropaginas"/>
+          <field name="precio"/>
+          <field name="rangoprecio"/>
+          <field name="tematica"/>
+        </tree>
+      </field>
+    </record>
+    
+    <record model="ir.ui.view" id="editorial.revista_form">
+      <field name="name">editorial.revista.form</field>
+      <field name="model">editorial.revista</field>
+      <field name="arch" type="xml">
+        <form>
+          <group colspan="2" col="2">
+            <field name="name"/>
+            <field name="codigo"/>
+            <field name="numeropaginas"/>
+            <field name="precio"/>
+            <field name="rangoprecio"/>
+            <field name="tematica"/>
+          </group>
+        </form>
+      </field>
+    </record>
+    
+    <record model="ir.ui.view" id="editorial.revista_search">
+      <field name="name">editorial.revista.search</field>
+      <field name="model">editorial.revista</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="codigo"/>
+          <field name="tematica"/>
+          <filter name="Revistas económicas" domain="[('precio','&lt;',5)]" />
+        </search>
+      </field>
+    </record> 
+
+    <record model="ir.actions.act_window" id="editorial.tematica_action_window">
+      <field name="name">Temática</field>
+      <field name="res_model">editorial.tematica</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="editorial.revista_action_window">
+      <field name="name">Revista</field>
+      <field name="res_model">editorial.revista</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem name="Editorial" id="editorial.menu_root" groups="gestor_editorial"/>
+    
+    <menuitem name="Temáticas" id="editorial.tematica_menu" parent="editorial.menu_root" action="editorial.tematica_action_window" groups="gestor_editorial"/>
+    <menuitem name="Revistas" id="editorial.revista_menu" parent="editorial.menu_root" action="editorial.revista_action_window" groups="gestor_editorial"/>
+  </data>
+</odoo>

@@ -1,0 +1,7 @@
+<odoo>
+    <data>
+        <record id="gestor_editorial" model="res.groups">
+            <field name="name">GestorEditorial</field>
+        </record>
+    </data>
+</odoo>
